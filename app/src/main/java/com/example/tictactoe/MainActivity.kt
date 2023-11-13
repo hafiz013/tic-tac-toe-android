@@ -37,6 +37,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+@Preview
 @Composable
 fun GreetingPreview() {
     TicTacToeTheme {
