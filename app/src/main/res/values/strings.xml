@@ -11,4 +11,16 @@
     <string name="animation">Animation: </string>
     <string name="enable">Enable</string>
     <string name="sound">Sound: </string>
+    <string name="select_game_mode">Select Game Mode :</string>
+    <string name="threelayer">3x3</string>
+    <string name="fourlayer">4x4</string>
+    <string name="fivelayer">5x5</string>
+    <string name="player1_name">Name of Player 1 :</string>
+    <string name="player1">Player 1</string>
+    <string name="player2_name">Name of Player 2 :</string>
+    <string name="player2">Player 2</string>
+    <string name="instruction">Enter player name, select mode game and click play</string>
+    <string name="play">Play</string>
+    <string name="player1_empty">Name of Player 1 can\'t be empty</string>
+    <string name="player2_empty">Name of Player 2 can\'t be empty</string>
 </resources>
