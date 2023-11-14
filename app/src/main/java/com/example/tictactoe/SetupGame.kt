@@ -2,7 +2,6 @@ package com.example.tictactoe
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.tictactoe.base.BaseActivity
@@ -17,10 +16,6 @@ class SetupGame : BaseActivity<ActivitySetupGameBinding>() {
     }
     override fun createViewBinding(): ActivitySetupGameBinding {
         return ActivitySetupGameBinding.inflate(layoutInflater)
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
     }
 
     fun onPlayGame(v:View){
