@@ -30,4 +30,8 @@ class MainActivity : AppCompatActivity() {
     fun onSetting(v: View){
         Settings.newIntent(this)
     }
+
+    fun onExitApplication(v: View){
+        finishAffinity()
+    }
 }

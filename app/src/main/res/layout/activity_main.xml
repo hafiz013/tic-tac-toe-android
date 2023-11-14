@@ -62,6 +62,7 @@
         android:text="@string/exit"
         android:textSize="24sp"
         android:layout_marginTop="@dimen/ten_dp"
+        android:onClick="onExitApplication"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnHistory" />
