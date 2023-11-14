@@ -5,14 +5,13 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.tictactoe.base.BaseActivity
 import com.example.tictactoe.databinding.ActivitySettingsBinding
 import com.example.tictactoe.viewmodel.SettingsViewModelImpl
 import org.koin.android.ext.android.inject
 
-class Settings : AppCompatActivity() {
-    private lateinit var binding: ActivitySettingsBinding
+class Settings : BaseActivity<ActivitySettingsBinding>() {
     private val settingsViewModel: SettingsViewModelImpl by inject()
     companion object{
         fun newIntent(context:Context){
@@ -20,11 +19,11 @@ class Settings : AppCompatActivity() {
             context.startActivity(intent)
         }
     }
+    override fun createViewBinding(): ActivitySettingsBinding {
+        return ActivitySettingsBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setupToolBar()
         getSettingTheme()
         getAnimationSetting()
         getSoundSetting()
@@ -69,10 +68,6 @@ class Settings : AppCompatActivity() {
     private fun setAppTheme(isLightTheme: Boolean) {
         val nightMode = if (isLightTheme) AppCompatDelegate.MODE_NIGHT_NO else AppCompatDelegate.MODE_NIGHT_YES
         AppCompatDelegate.setDefaultNightMode(nightMode)
-    }
-    private fun setupToolBar(){
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
