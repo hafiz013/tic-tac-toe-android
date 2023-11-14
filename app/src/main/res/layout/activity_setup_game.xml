@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetupGame">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/gameModeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:text="@string/select_game_mode"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+    <RadioGroup
+        android:id="@+id/gameModeGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/ten_dp"
+        app:layout_constraintStart_toEndOf="@id/gameModeText"
+        app:layout_constraintTop_toTopOf="@id/gameModeText"
+        app:layout_constraintBottom_toBottomOf="@id/gameModeText">
+
+        <RadioButton
+            android:id="@+id/threeLayerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/threelayer"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/fourLayerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fourlayer"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/fiveLayerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fivelayer"
+            android:textSize="16sp" />
+    </RadioGroup>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player1NameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:text="@string/player1_name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gameModeGroup" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/player1NameEdit"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="24"
+        android:text="@string/player1"
+        app:layout_constraintStart_toStartOf="@id/player1NameText"
+        app:layout_constraintTop_toBottomOf="@id/player1NameText" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player2NameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:text="@string/player2_name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player1NameEdit" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/player2NameEdit"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="24"
+        android:text="@string/player2"
+        app:layout_constraintStart_toStartOf="@id/player2NameText"
+        app:layout_constraintTop_toBottomOf="@id/player2NameText" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/instructionMultiText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2NameEdit" />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:layout_margin="@dimen/ten_dp"
+        android:onClick="onPlayGame"
+        app:layout_constraintTop_toBottomOf="@id/instructionMultiText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
