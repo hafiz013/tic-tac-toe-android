@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
     }
-
+    fun onSetupGame(v:View){
+        SetupGame.newIntent(this)
+    }
     fun onSetting(v: View){
         Settings.newIntent(this)
     }

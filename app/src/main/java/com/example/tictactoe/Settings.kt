@@ -66,15 +66,8 @@ class Settings : BaseActivity<ActivitySettingsBinding>() {
         binding.btnTheme.check(if (isLightTheme) R.id.btnLight else R.id.btnDark)
     }
     private fun setAppTheme(isLightTheme: Boolean) {
-        val nightMode = if (isLightTheme) AppCompatDelegate.MODE_NIGHT_NO else AppCompatDelegate.MODE_NIGHT_YES
+        val nightMode =
+            if (isLightTheme) AppCompatDelegate.MODE_NIGHT_NO else AppCompatDelegate.MODE_NIGHT_YES
         AppCompatDelegate.setDefaultNightMode(nightMode)
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> { onBackPressedDispatcher.onBackPressed()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }
