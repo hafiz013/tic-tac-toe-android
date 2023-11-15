@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.tictactoe.base.BaseActivity
 import com.example.tictactoe.databinding.ActivitySettingsBinding

@@ -31,14 +31,14 @@ class SetupGame : BaseActivity<ActivitySetupGameBinding>() {
         }
 
         when(binding.gameModeGroup.checkedRadioButtonId){
-            R.id.threeLayerBtn ->{
-                ThreeLayerGame.newIntent(this, playerName1 = playerName1, playerName2 = playerName2)
+            R.id.threeLayerBtn -> {
+                GamePlay.newIntent(this, playerName1 = playerName1, playerName2 = playerName2, gameSize = 3)
             }
-            R.id.fourLayerBtn ->{
-
+            R.id.fourLayerBtn -> {
+                GamePlay.newIntent(this, playerName1 = playerName1, playerName2 = playerName2, gameSize = 4)
             }
             else -> {
-
+                GamePlay.newIntent(this, playerName1 = playerName1, playerName2 = playerName2, gameSize = 5)
             }
         }
     }
