@@ -14,6 +14,7 @@ import com.example.tictactoe.core.SharedPreferenceManager
 import com.example.tictactoe.databinding.ActivityGame3x3Binding
 import com.example.tictactoe.databinding.ActivityGame4x4Binding
 import com.example.tictactoe.databinding.ActivityGame5x5Binding
+import com.example.tictactoe.extenstion.showAnimatedToast
 import com.example.tictactoe.setting.TicTacToeLogic
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
@@ -235,20 +236,26 @@ abstract class GameAbstractActivity : AppCompatActivity() {
         if (Player1SymbolIsX) winner = -winner
         if (winner == 1){
             startPlayMusic()
-            setAnimation()
-            Toast.makeText(
-                this,
-                player1Name?.getText().toString() + " " + getString(R.string.won),
-                Toast.LENGTH_SHORT
-            ).show()
+            if(sharedPreferences.getAnimation()){
+                showAnimatedToast(player1Name?.getText().toString() + " " + getString(R.string.won))
+            }else{
+                Toast.makeText(
+                    this,
+                    player1Name?.getText().toString() + " " + getString(R.string.won),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         } else if (winner == -1) {
             startPlayMusic()
-            setAnimation()
-            Toast.makeText(
-                this,
-                player2Name?.getText().toString() + " " + getString(R.string.won),
-                Toast.LENGTH_SHORT
-            ).show()
+            if(sharedPreferences.getAnimation()){
+                showAnimatedToast(player2Name?.getText().toString() + " " + getString(R.string.won))
+            }else{
+                Toast.makeText(
+                    this,
+                    player2Name?.getText().toString() + " " + getString(R.string.won),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         } else Toast.makeText(this, getString(R.string.draw), Toast.LENGTH_SHORT).show()
     }
 
@@ -259,11 +266,6 @@ abstract class GameAbstractActivity : AppCompatActivity() {
         }
     }
 
-    private fun setAnimation(){
-        if (sharedPreferences.getAnimation()){
-
-        }
-    }
     protected fun resetBoard() {
         for (i in buttons.indices) for (j in buttons[i].indices) {
             buttons[i][j]?.isClickable = true
