@@ -57,9 +57,10 @@ abstract class GameAbstractActivity : AppCompatActivity() {
     protected var totalGames = 0
     protected var totalGamesWonByPlayer1 = 0
     protected var totalGamesWonByPlayer2 = 0
-    private var mediaPlayer: MediaPlayer? = null
+    protected var mediaPlayer: MediaPlayer? = null
     private val sharedPreferences: SharedPreferenceManager by inject()
     protected abstract fun setContinueButtonOnClickListener()
+
     private fun setButtonsOnClickListeners(){
         for (i in 0 until buttons.size) {
             for (j in 0 until buttons[i].size) {
@@ -116,6 +117,16 @@ abstract class GameAbstractActivity : AppCompatActivity() {
             player1CurrentSymbolText?.text = "O"
             player2CurrentSymbolText?.text = "X"
         }
+    }
+
+    protected fun resetResultGame(){
+        totalGames = 0
+        totalGamesWonByPlayer1 = 0
+        totalGamesWonByPlayer2 = 0
+        winRatePlayer1?.text = "0.00%"
+        winRatePlayer2?.text = "0.00%"
+        scorePlayer1Text?.text = "0"
+        scorePlayer2Text?.text = "0"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -207,11 +218,11 @@ abstract class GameAbstractActivity : AppCompatActivity() {
 
     private fun updateWinRate() {
         if (totalGames == 0) {
-            winRatePlayer1?.text = "0.0%"
-            winRatePlayer2?.text = "0.0%"
+            winRatePlayer1?.text = "0.00%"
+            winRatePlayer2?.text = "0.00%"
         } else {
-            winRatePlayer1?.text = "${DecimalFormat("0.00%").format(totalGamesWonByPlayer1.toDouble().div(totalGames.toDouble()))}%"
-            winRatePlayer2?.text = "${DecimalFormat("0.00%").format(totalGamesWonByPlayer2.toDouble().div(totalGames.toDouble()))}%"
+            winRatePlayer1?.text = "${DecimalFormat("0.00%").format(totalGamesWonByPlayer1.toDouble().div(totalGames.toDouble()))}"
+            winRatePlayer2?.text = "${DecimalFormat("0.00%").format(totalGamesWonByPlayer2.toDouble().div(totalGames.toDouble()))}"
         }
     }
 
@@ -277,16 +288,11 @@ abstract class GameAbstractActivity : AppCompatActivity() {
 
     private fun setControlButtonsOnClickListeners() {
         setContinueButtonOnClickListener()
-        setExitButtonOnClickListener()
     }
 
     protected fun persistMove(x: Int, y: Int, symbol: Char) {
         texts[x][y]?.text = symbol.toString()
         buttons[x][y]?.isClickable = false
-    }
-
-    private fun setExitButtonOnClickListener() {
-        exitButton?.setOnClickListener { v: View? -> finish() }
     }
 
     protected fun disableControlButtons() {
@@ -484,10 +490,5 @@ abstract class GameAbstractActivity : AppCompatActivity() {
         texts[4][2] = activityGame5x5Binding?.boardText42
         texts[4][3] = activityGame5x5Binding?.boardText43
         texts[4][4] = activityGame5x5Binding?.boardText44
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayer?.release()
     }
 }
