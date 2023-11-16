@@ -4,4 +4,5 @@
     <dimen name="ten_dp">10dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
     <dimen name="five_dp">5dp</dimen>
+    <dimen name="sixTy_dp">60dp</dimen>
 </resources>

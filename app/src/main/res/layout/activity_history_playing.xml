@@ -28,12 +28,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/sixTy_dp"
         android:text="@string/share_result"
         android:textSize="12sp"
         android:layout_margin="@dimen/ten_dp"
         android:fontFamily="sans-serif-black"
         android:backgroundTint="@color/teal_200"
+        android:onClick="onShareResultGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
     <RelativeLayout
