@@ -36,4 +36,8 @@ class MainActivity : AppCompatActivity() {
     fun onExitApplication(v: View){
         finishAffinity()
     }
+
+    fun onCheckOnHistoryPlay(v:View){
+       HistoryPlaying.newIntent(this)
+    }
 }

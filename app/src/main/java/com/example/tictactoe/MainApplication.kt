@@ -6,6 +6,8 @@ import com.example.tictactoe.core.SharedPreferenceManager
 import com.example.tictactoe.database.UserDatabase
 import com.example.tictactoe.repository.UserRepository
 import com.example.tictactoe.viewmodel.GamePlayImpl
+import com.example.tictactoe.viewmodel.HistoryGamePlayImpl
+import com.example.tictactoe.viewmodel.HistoryGamePlayViewModel
 import com.example.tictactoe.viewmodel.SettingsViewModelImpl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -42,5 +44,6 @@ class MainApplication : Application() {
         single { UserRepository(provideDao(get()))}
         viewModel { SettingsViewModelImpl(get()) }
         viewModel { GamePlayImpl(get()) }
+        viewModel { HistoryGamePlayImpl(get())}
     }
 }

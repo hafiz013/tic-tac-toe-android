@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/history_txt"
         android:textSize="24sp"
+        android:onClick="onCheckOnHistoryPlay"
         android:layout_marginTop="@dimen/ten_dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

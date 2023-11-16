@@ -14,6 +14,9 @@
         android:theme="@style/Theme.TicTacToe"
         tools:targetApi="31">
         <activity
+            android:name=".HistoryPlaying"
+            android:exported="false" />
+        <activity
             android:name=".GamePlay"
             android:exported="false" />
         <activity

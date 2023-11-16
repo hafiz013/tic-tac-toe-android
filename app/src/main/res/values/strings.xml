@@ -36,4 +36,10 @@
     <string name="failed_save_data">Failed to save data.</string>
     <string name="success_save_data">Successful save the data.</string>
     <string name="loading">Loading...</string>
+    <string name="share_result">Share Result Game</string>
+    <string name="no_result_data">No History Game</string>
+    <string name="id_player">ID Player</string>
+    <string name="player_name">Player Name</string>
+    <string name="scoring_player">Player Score</string>
+    <string name="win_rate_player">Player WinRate</string>
 </resources>
