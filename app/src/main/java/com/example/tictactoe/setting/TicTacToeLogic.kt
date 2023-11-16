@@ -2,7 +2,7 @@ package com.example.tictactoe.setting
 
 import java.util.Arrays
 
-class TicTacToeLogic(gameSize:Int) {
+class TicTacToeLogic(private val gameSize:Int) {
     private val MAX_MOVES_NUMBER = gameSize * gameSize
     private val board = Array(gameSize) { CharArray(gameSize) }
     private var lastMoveX = 0
@@ -44,103 +44,28 @@ class TicTacToeLogic(gameSize:Int) {
     }
 
     private fun checkWin(symbol: Char): Boolean {
-        if (lastMoveX == 0) {
-            if (lastMoveY == 0) {
-                if (board[0][1] == symbol && board[0][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(0, 1), intArrayOf(0, 2))
-                    return true
-                } else if (board[1][0] == symbol && board[2][0] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 0), intArrayOf(2, 0))
-                    return true
-                } else if (board[1][1] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 1), intArrayOf(2, 2))
-                    return true
+        // Check rows and columns
+        for (i in 0 until gameSize) {
+            if (board[i].all { it == symbol } || (0 until gameSize).all { board[it][i] == symbol }) {
+                winPositions = if (board[i].all { it == symbol }) {
+                    Array(gameSize) { intArrayOf(i, it) }
+                } else {
+                    Array(gameSize) { intArrayOf(it, i) }
                 }
-            } else if (lastMoveY == 1) {
-                if (board[0][0] == symbol && board[0][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(0, 1), intArrayOf(0, 2))
-                    return true
-                } else if (board[1][1] == symbol && board[2][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 1), intArrayOf(1, 1), intArrayOf(2, 1))
-                    return true
-                }
-            } else if (lastMoveY == 2) {
-                if (board[0][0] == symbol && board[0][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(0, 1), intArrayOf(0, 2))
-                    return true
-                } else if (board[1][2] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 2), intArrayOf(1, 2), intArrayOf(2, 2))
-                    return true
-                } else if (board[1][1] == symbol && board[2][0] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 2), intArrayOf(1, 1), intArrayOf(2, 0))
-                    return true
-                }
-            }
-        } else if (lastMoveX == 1) {
-            if (lastMoveY == 0) {
-                if (board[1][1] == symbol && board[1][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(1, 0), intArrayOf(1, 1), intArrayOf(1, 2))
-                    return true
-                } else if (board[0][0] == symbol && board[2][0] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 0), intArrayOf(2, 0))
-                    return true
-                }
-            } else if (lastMoveY == 1) {
-                if (board[0][1] == symbol && board[2][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 1), intArrayOf(1, 1), intArrayOf(2, 1))
-                    return true
-                } else if (board[1][0] == symbol && board[1][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(1, 0), intArrayOf(1, 1), intArrayOf(1, 2))
-                    return true
-                } else if (board[0][0] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 1), intArrayOf(2, 2))
-                    return true
-                } else if (board[0][2] == symbol && board[2][0] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 2), intArrayOf(1, 1), intArrayOf(2, 0))
-                    return true
-                }
-            } else if (lastMoveY == 2) {
-                if (board[1][0] == symbol && board[1][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(1, 0), intArrayOf(1, 1), intArrayOf(1, 2))
-                    return true
-                } else if (board[0][2] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 2), intArrayOf(1, 2), intArrayOf(2, 2))
-                    return true
-                }
-            }
-        } else if (lastMoveX == 2) {
-            if (lastMoveY == 0) {
-                if (board[0][0] == symbol && board[1][0] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 0), intArrayOf(2, 0))
-                    return true
-                } else if (board[2][1] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(2, 0), intArrayOf(2, 1), intArrayOf(2, 2))
-                    return true
-                } else if (board[1][1] == symbol && board[0][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(2, 0), intArrayOf(1, 1), intArrayOf(0, 2))
-                    return true
-                }
-            } else if (lastMoveY == 1) {
-                if (board[2][0] == symbol && board[2][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(2, 0), intArrayOf(2, 1), intArrayOf(2, 2))
-                    return true
-                } else if (board[0][1] == symbol && board[1][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 1), intArrayOf(1, 1), intArrayOf(2, 1))
-                    return true
-                }
-            } else if (lastMoveY == 2) {
-                if (board[0][2] == symbol && board[1][2] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 2), intArrayOf(1, 2), intArrayOf(2, 2))
-                    return true
-                } else if (board[2][0] == symbol && board[2][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(2, 0), intArrayOf(2, 1), intArrayOf(2, 2))
-                    return true
-                } else if (board[0][0] == symbol && board[1][1] == symbol) {
-                    winPositions = arrayOf(intArrayOf(0, 0), intArrayOf(1, 1), intArrayOf(2, 2))
-                    return true
-                }
+                return true
             }
         }
+
+        // Check diagonals
+        if ((0 until gameSize).all { board[it][it] == symbol }) {
+            winPositions = Array(gameSize) { intArrayOf(it, it) }
+            return true
+        }
+        if ((0 until gameSize).all { board[it][gameSize - 1 - it] == symbol }) {
+            winPositions = Array(gameSize) { intArrayOf(it, gameSize - 1 - it) }
+            return true
+        }
+
         return false
     }
 
