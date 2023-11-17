@@ -7,10 +7,7 @@ import com.example.tictactoe.database.UserDatabase
 import com.example.tictactoe.repository.UserRepository
 import com.example.tictactoe.viewmodel.GamePlayImpl
 import com.example.tictactoe.viewmodel.HistoryGamePlayImpl
-import com.example.tictactoe.viewmodel.HistoryGamePlayViewModel
 import com.example.tictactoe.viewmodel.SettingsViewModelImpl
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
