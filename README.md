@@ -13,6 +13,11 @@ Below here step-by-step on how you can start run this game :
    8) Note : if in case you have to play anything then the data will not save after you click exit from play button.
 
 # Screens
-
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/1.png" width="35%"></img>
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/2.png" width="35%"></img>
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/3.png" width="35%"></img>
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/4.png" width="35%"></img>
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/5.png" width="35%"></img>
+<img src="https://github.com/hafiz013/tic-tac-toe-android/blob/main/6.png" width="35%"></img>
 # License
 Game code is shared under GPLv3 license
